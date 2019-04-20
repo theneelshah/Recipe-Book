@@ -29,7 +29,7 @@
         </div>
     </nav>
 
-    <div class="container form-rec">
+    <div class="container body-container">
         <form action="#" method="post">
             <div class="form-content">
                 <h4><label for="title">Title:</label></h4>
