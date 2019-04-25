@@ -25,6 +25,9 @@ require_once "db.php";
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                 <li class="nav-item active">
+                    <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="addRecipe.php">Add New Recipe<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -43,10 +46,10 @@ require_once "db.php";
     <h2>PRocedure</h2>
         <?php  echo nl2br($row["proc"]) ?> <br><br>
         <div>
-            <button type="button" class="btn btn-dark" name="del" id="del">Delete</button>
+            <img src="images/<?php echo $row['image']?>" alt="" srcset="" height="300px" width="300px"> <br><br>
+           <a href="viewRecipe.php?del=<?php echo $id?>"> <button type="button" class="btn btn-dark" name="del" id="del">Delete</button></a>
         </div>
     </div>
-    
     <?php } ?>
 </body>
 </html>

@@ -10,6 +10,11 @@
 </head>
 <?php
 require_once "db.php";
+if(isset($_GET['del'])){
+    $del = $_GET['del'];
+    $get = mysqli_query($conn, "DELETE FROM all_recipe where id =" .$del);
+    
+}
     $get = mysqli_query($conn, "SELECT * FROM all_recipe");
 ?>
 <body>
@@ -21,6 +26,9 @@ require_once "db.php";
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+            <li class="nav-item active">
+                    <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+                </li>
             <li class="nav-item active">
                 <a class="nav-link" href="addRecipe.php">Add New Recipe<span class="sr-only">(current)</span></a>
             </li>
