@@ -10,14 +10,7 @@
 </head>
 <?php
 require_once "db.php";
-$get = mysqli_query($conn, "SELECT * FROM all_recipe");
-// if ( mysqli_num_rows($get) > 0 ) {
-//     while($row = mysqli_fetch_assoc($get)) {
-//         echo $row["title"]. " " . $row["proc"] . "<br><br>";
-//     }
-// } else {
-//     echo "0 results";
-// }
+    $get = mysqli_query($conn, "SELECT * FROM all_recipe");
 ?>
 <body>
     <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
@@ -41,23 +34,27 @@ $get = mysqli_query($conn, "SELECT * FROM all_recipe");
 
     <div class="container just body-container">
         <h4>All recipes: </h4>
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Title</th>
-                    <th>Procedure</th>
-                </tr>
-            </thead>
+        
         <?php
-            if ( mysqli_num_rows($get) > 0 ) {
+            if ( mysqli_num_rows($get) > 0 ) { ?>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+            <?php
                 while($row = mysqli_fetch_assoc($get)) {
-                    echo "<tr> <td>" . $row["title"] . "</td><td>" . $row["proc"] . "</td> </tr>";
+                    echo "<tr> <td>" . $row["title"] . "</td><td>" . $row["descp"] . "</td> <td> <a href=\"viewRecipePage.php?id=". $row["id"] ."\">View Recipe</a> </td></tr>";
                 }
             } else {
-                echo "0 results";
+                echo "You haven't added any recipes yet. Add some now!";
             }
         ?>
         </table>
     </div>
+
 </body>
 </html>
